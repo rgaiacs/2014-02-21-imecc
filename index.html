@@ -1,38 +1,46 @@
 ---
 layout: bootcamp
 root: .
-venue: Euphoric State University
-address: 123 College Street, Euphoria
-country: United-States
-humandate: June 17-18, 2020
-humantime: 9:00 am - 4:30 pm
-startdate: 2020-06-17
-enddate: 2020-06-18
-latlng: 41.7901128,-87.6007318
-registration: restricted
-instructor: ["Grace Hopper", "Alan Turing"]
-contact: random@software-carpentry.org
+venue: Institute for Mathematics, Statistics and Scientific Computing (IMECC) of the State University of Campinas (UNICAMP)
+address: Rua Sérgio Buarque de Holanda, 651 – Cidade Universitária "Zeferino Vaz" – Distr. Barão Geraldo – Campinas – São Paulo – Brasil
+country: Brazil
+humandate: February 21, 2014
+humantime: 9:00 am - 5:00 pm
+startdate: 2014-02-21
+enddate: 2014-02-21
+latlng: -22.8163985,-47.0683798
+registration: open
+instructor: ["Raniere Silva", "Abel Siqueira"]
+contact: raniere@ime.unicamp.br
 ---
-<div align="center">
-  <p><strong><em>
-      This page is a template for bootcamp home pages.
-      <br/>
-      Please see
-      <a href="https://github.com/swcarpentry/bc">https://github.com/swcarpentry/bc</a>
-      for instructions on how to create
-      a repository for your bootcamp.
-      <br/>
-      Please also see
-      the <a href="{{page.root}}/lessons/index.html">index to our lessons</a>
-      and the <a href="{{page.root}}/lessons/setup.html">index to setup instructions</a>.
-  </em></strong></p>
-</div>
 {% include bootcamps/instructors.html %}
 {% include bootcamps/what.html %}
 {% include bootcamps/who.html %}
 {% include bootcamps/requirements.html %}
 {% include bootcamps/python.html %}
 {% include bootcamps/contact.html %}
+
+<hr/>
+
+<h2> Timetable </h2>
+<strong>Thuesday, 20th February on room S15</strong>
+<ul>
+  <li>9:00 - 12:00 Setup Help</li>
+  <li>12:00 - 14:00 Lunch</li>
+  <li>14:00 - 17:00 Setup Help</li>
+</ul>
+<strong>Friday, 21th February on room S06</strong>
+<ul>
+  <li>9:00 - 9:30 Intro</li>
+  <li>9:30 - 10:30 Shell</li>
+  <li>10:30 - 11:00 Break</li>
+  <li>11:00 - 12:30 Version control with git</li>
+  <li>12:30 - 14:00 Lunch</li>
+  <li>14:00 - 15:00 More git</li>
+  <li>15:00 - 16:00 Programming in Python</li>
+  <li>16:00 - 16:30 Break</li>
+  <li>16:30 - 18:00 More Python</li>
+</ul>
 
 <hr/>
 
@@ -44,7 +52,7 @@ you will need working copies of:
 {% include setup/overview-git.html %}
 {% include setup/overview-editor.html %}
 {% include setup/overview-python.html %}
-{% include setup/overview-r.html %}
+<!--{% include setup/overview-r.html %}-->
 
 The instructions for installing each of these components is organzed below by operating system.  
 
@@ -80,51 +88,10 @@ The instructions for installing each of these components is organzed below by op
 {% include setup/linux-python.html %}
 <!--{% include setup/linux-r.html %}-->
 	</div>
-</div>
-</div>
-
-
-
-<!--    {% include setup/overview-bash.html %}
-    {% include setup/overview-editor.html %}
-    {% include setup/overview-git.html %}
-    {% include setup/overview-python.html %}-->
-
-
-<hr/>
-
-<h2>Topics</h2>
-
-<div class="row-fluid">
-  <div class="span6">
-    <h3><a href="lessons/swc-shell/tutorial.html">The Unix Shell</a></h3>
-    <ul>
-      <li>{% include guide-shell/intro/title.md %}</li>
-      <li>{% include guide-shell/filedir/title.md %}</li>
-      <li>{% include guide-shell/create/title.md %}</li>
-      <li>{% include guide-shell/pipefilter/title.md %}</li>
-      <li>{% include guide-shell/loop/title.md %}</li>
-      <li>{% include guide-shell/scripts/title.md %}</li>
-      <li>{% include guide-shell/find/title.md %}</li>
-    </ul>
   </div>
   <div class="span6">
-    <h3><a href="lessons/swc-db/tutorial.html">Databases</a></h3>
-    <ul>
-      <li>{% include guide-db/select/title.md %}</li>
-      <li>{% include guide-db/distinct/title.md %}</li>
-      <li>{% include guide-db/filter/title.md %}</li>
-      <li>{% include guide-db/calc/title.md %}</li>
-      <li>{% include guide-db/sort/title.md %}</li>
-      <li>{% include guide-db/null/title.md %}</li>
-      <li>{% include guide-db/aggregate/title.md %}</li>
-      <li>{% include guide-db/grouping/title.md %}</li>
-      <li>{% include guide-db/join/title.md %}</li>
-      <li>{% include guide-db/create/title.md %}</li>
-      <li>{% include guide-db/transactions/title.md %}</li>
-      <li>{% include guide-db/programming/title.md %}</li>
-    </ul>
-  </div>
+	
+</div>
 </div>
 
 <hr/>
@@ -134,5 +101,4 @@ The instructions for installing each of these components is organzed below by op
 <ul>
   <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix Shell</a></li>
   <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
-  <li><a href="{{page.root}}/lessons/ref/sql.html">SQL</a></li>
 </ul>
