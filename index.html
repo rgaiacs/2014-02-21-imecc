@@ -13,102 +13,125 @@ registration: open
 instructor: ["Raniere Silva", "Abel Siqueira"]
 contact: raniere@ime.unicamp.br
 ---
+
+<!--
+    This block includes the Eventbrite registration widget if 'eventbrite' has been set in the header.
+-->
+{% if page.eventbrite %}
+<iframe src="http://www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt" frameborder="0" width="100%" scrolling="auto"></iframe>
+{% endif %}
+
+<h2>General Information</h2>
+
 <p>
   <strong>Acknowledge</strong>:
   <a href="http://software-carpentry.org">Software Carpentry</a> for the great
   work in write the lessons and make it available with an open license.
+
+
+<!-- This block displays the instructors' names if they are available. -->
+{% if page.instructor %}
+<p>
+  <strong>Instructors:</strong>
+  {{page.instructor | join: ', ' %}}
 </p>
-{% include bootcamps/instructors.html %}
-{% include bootcamps/what.html %}
-{% include bootcamps/who.html %}
-{% include bootcamps/requirements.html %}
-{% include bootcamps/python.html %}
+{% endif %}
+
+<!--
+    Modify this block to reflect the target audience for your bootcamp.
+    In particular, if it is only open to people from a particular institution,
+    or if specialized prerequisite knowledge is required, please mention that.
+-->
+<p>
+  <strong>Who:</strong>
+  The course is aimed at postgraduate students and other scientists who are
+  familiar with basic programming concepts (like loops, conditionals, arrays,
+  and functions) but need help to translate this knowledge into practical tools
+  to help them work more productively.
+</p>
+
+<!--
+    This block displays the address and links to a map showing directions.
+-->
+{% if page.latlng %}
+<p>
+  <strong>Where:</strong>
+  {{ page.address }}.
+  Get directions with
+  <a href="http://www.openstreetmap.org/?mlat={{ page.latlng | replace:',','&mlon=' }}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="http://maps.google.com/maps?q={{ page.latlng }}">Google Maps</a>.
+</p>
+{% endif %}
+
+<!--
+    Modify the block below if there are any special requirements.
+-->
+<p>
+  <strong>Requirements:</strong>
+  Participants must bring a laptop with a few specific software packages installed
+  (listed below).
+</p>
+
 <p>
   <strong>Registration</strong>:
   Please mail raniere@ime.unicamp.br with "Inscrição para Workshop" in the
   subject field.
 </p>
-{% include bootcamps/contact.html %}
+
+<!--
+    This block automatically inserts a contact email address if one has been specified for the page.
+    If one hasn't, this block inserts the generic contact address for Software Carpentry.
+-->
+<p>
+  <strong>Contact</strong>:
+  Please mail
+  {% if page.contact %}
+    <a href='mailto:{{page.contact}}'>{{page.contact}}</a>
+  {% else %}
+    <a href='mailto:{{site.contact}}'>{{site.contact}}</a>
+  {% endif %}
+  for more information.
+</p>
 
 <hr/>
 
-<h2> Timetable </h2>
-<strong>Thuesday, 20th February on room S107</strong>
-<ul>
-  <li>9:00 - 12:00 Setup Help</li>
-  <li>12:00 - 14:00 Lunch</li>
-  <li>14:00 - 17:00 Setup Help</li>
-</ul>
-<strong>Friday, 21th February on room S06</strong>
-<ul>
-  <li>9:00 - 9:30 Intro</li>
-  <li>9:30 - 10:30 Shell</li>
-  <li>10:30 - 11:00 Break</li>
-  <li>11:00 - 12:30 Version control with git</li>
-  <li>12:30 - 14:00 Lunch</li>
-  <li>14:00 - 15:00 More git</li>
-  <li>15:00 - 16:00 Programming in Python</li>
-  <li>16:00 - 16:30 Break</li>
-  <li>16:30 - 18:00 More Python</li>
-</ul>
+<!--
+    Edit this block to show the syllabus and schedule for your bootcamp.
+-->
+<h2>Schedule</h2>
 
+<table class="table table-striped">
+  <tr> <td>Thuesday (<strong>room S107</strong>)</td>  <td>09:00</td>  <td>Setup Help</td> </tr>
+  <tr> <td></td>        <td>12:00</td>  <td>Lunch break</td> </tr>
+  <tr> <td></td>        <td>14:00</td>  <td>Setup Help</td> </tr>
+  <tr> <td></td>        <td>17:00</td>  <td>Wrap-up</td> </tr>
+  <tr> <td>Friday (<strong>room S06</strong></td> <td>09:00</td>  <td>Intro</td> </tr>
+  <tr> <td></td>        <td>09:30</td>  <td>Shell</td> </tr>
+  <tr> <td></td>        <td>10:30</td>  <td>Coffee break</td> </tr>
+  <tr> <td></td>        <td>11:00</td>  <td>Version control with git</td> </tr>
+  <tr> <td></td>        <td>12:30</td>  <td>Lunch break</td> </tr>
+  <tr> <td></td>        <td>14:00</td>  <td>More git</td> </tr>
+  <tr> <td></td>        <td>15:00</td>  <td>Programming in Python</td> </tr>
+  <tr> <td></td>        <td>16:00</td>  <td>Coffee break</td> </tr>
+  <tr> <td></td>        <td>16:30</td>  <td>More Python</td> </tr>
+  <tr> <td></td>        <td>18:00</td>  <td>Wrap-up</td> </tr>
+</table>
 <hr/>
+
+<!--
+    Edit the setup instructions in _includes/setup.html to reflect your bootcamp.
+    (In particular, most bootcamps teach either Python or R, not both.)
+-->
 
 <h2>Setup</h2>
 
-To participate in this workshop,
-you will need working copies of:
-{% include setup/overview-bash.html %}
-{% include setup/overview-git.html %}
-{% include setup/overview-editor.html %}
-{% include setup/overview-python.html %}
-<!--{% include setup/overview-r.html %}-->
+<p>
+  To participate in a Software Carpentry bootcamp, 
+  you will need working copies of the software described below.
+  Please make sure to install everything
+  (or at least to download the installers)
+  <em>before</em> the start of your bootcamp.
+</p>
 
-The instructions for installing each of these components is organzed below by operating system.  
-
-<div class="row-fluid">
-  <div class="span6">
-
-	
-<h3>MacOSX</h3>
-	<div class="well">
-{% include setup/macosx-bash.html %}
-{% include setup/macosx-editor.html %}
-{% include setup/macosx-git.html %}
-{% include setup/macosx-python.html %}
-<!--{% include setup/macosx-r.html %}-->
-	</div>
-  </div>
-  <div class="span6">
-	
-<h3>Windows</h3>
-	<div class="well">
-{% include setup/windows-swc.html %}
-{% include setup/windows-git.html %}
-{% include setup/windows-editor.html %}
-{% include setup/windows-anaconda.html %}
-<!--{% include setup/windows-r.html %}-->
-	</div>
-	
-<h3>Linux</h3>
-	<div class="well">
-{% include setup/linux-bash.html %}
-{% include setup/linux-git.html %}
-{% include setup/linux-editor.html %}
-{% include setup/linux-python.html %}
-<!--{% include setup/linux-r.html %}-->
-	</div>
-  </div>
-  <div class="span6">
-	
-</div>
-</div>
-
-<hr/>
-
-<h2>Reference Guides</h2>
-
-<ul>
-  <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix Shell</a></li>
-  <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
-</ul>
+{% include setup.html %}
